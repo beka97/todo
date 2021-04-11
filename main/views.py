@@ -7,4 +7,4 @@ def test(request):
     return render(request, "test.html")
 
 def second (request):
-    return HttpResponse('test2 request')
+    return HttpResponse("test2 request")
