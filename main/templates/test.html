@@ -8,5 +8,9 @@
 </head>
 <body>
     <h2>Это тестовая страница</h2>
+    <div>Версия 2</div>
+    {% for todo in todo_list %}
+        <h3> - {{ todo.created_at}}</h3>
+    {% endor %}
 </body>
 </html>

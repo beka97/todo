@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
-    path("test", test, name="test"),
+    path("test/", test, name="test"),
     path("test2/",second)
 ]   + static(settings.STATIC_URL, docyment_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, docyment_root=settings.MEDIA_ROOT)
