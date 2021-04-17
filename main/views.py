@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+ from django.shortcuts import render
 from .models import ToDo
 
 def homepage(request):
@@ -6,7 +6,7 @@ def homepage(request):
 
 def test(request):
     todo_list = ToDo.objects.all()
-    return render(request, "test.html",{"todo_list": todo_list})
+    return render(request, "test.html" ,{"todo_list": todo_list})
 
-def second (request):
-    return HttpResponse("test2 request")
+# def second (request):
+    #  return HttpResponse("test2 request")
