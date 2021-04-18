@@ -26,9 +26,10 @@
            </form>
         </div>
         <div class="todo_container">
+            
             {% for todo in todo_list %}
             <div class="todo_item
-                {% if todo.is_favorite&}
+                {% if todo.is_favorite %}
                     marked
                 {% endif %}
             ">
@@ -43,11 +44,12 @@
                     <p>{{ todo.created_at }}</span></p>
                     <div class="action_buttons">
                         {% if todo.is_favorite %}   
-                        <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/unmarket.png' %}"></a>
+                            <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './icons/market.png' %}"></a>
                         {% else %}
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}"></a>
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/unmarket.png' %}"></a>
                         {% endif %}
-                        
+                            
+                            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}"></a>
                     </div>
                 </div>
             </div>
