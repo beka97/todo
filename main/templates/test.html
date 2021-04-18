@@ -11,14 +11,19 @@
     <!-- <link rel="stylesheet" href="./styles/checkbox.css" /> -->
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}"/>
 </head>
+<body>
     <section>
         <div class="create_container">
+           <form action="{% url 'add-todo' %}" method="POST">
+            {% csrf_token %}
             <input
-             class="create_input"
-             type="text"
-             placeholder="Напишите сюда новую задачу"
+                class="create_input"
+                type="text"
+                placeholder="Напишите сюда новую задачу"
+                name="todo-text"
             />
             <button class="create_button">Добавить</button>
+           </form>
         </div>
         <div class="todo_container">
             {% for todo in todo_list %}
@@ -41,4 +46,5 @@
             {% endfor %}
         </div>
     </section>
+</body>   
 </html>
