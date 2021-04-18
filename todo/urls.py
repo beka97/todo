@@ -29,5 +29,6 @@ urlpatterns = [
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
     path("unmark-todo/<id>/", unmark_todo, name="unmark-todo"),
+    path("close-todo/<id>/", close_todo, name="close-todo"),
 ]   + static(settings.STATIC_URL, docyment_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, docyment_root=settings.MEDIA_ROOT)

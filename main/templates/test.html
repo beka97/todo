@@ -31,22 +31,28 @@
             <div class="todo_item marked
                 {% if todo.is_favorite %}
                     marked
+                {% elif todo.is_closed %}
+                    done
                 {% endif %}
             ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox" />
+                        <input type="checkbox" 
+                            {% if too.is_closed %}
+                                checked
+                            {% endif %}
+                        />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{ todo.text }}</h4>
+                    <h4><a href="{% url 'close-todo' todo.id %}">{{ todo.text }}</a></h4>
                     </div>
                     <div class="todo_item_footer">
                     <p>{{ todo.created_at }}</span></p>
                     <div class="action_buttons">
                         {% if todo.is_favorite %}   
-                            <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './icons/market.png' %}"></a>
+                            <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './icons/unmarket.png' %}"></a>
                         {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/unmarket.png' %}"></a>
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/market.png' %}"></a>
                         {% endif %}
                             
                             <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}"></a>
