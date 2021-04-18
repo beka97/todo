@@ -26,5 +26,6 @@ urlpatterns = [
     path("test/", test, name="test"),
     path("test2/", second, name="test2" ),
     path("add-todo/", add_todo, name="add-todo"),
+    path("delete-todo/<id>/", add_todo, name="add-todo"),
 ]   + static(settings.STATIC_URL, docyment_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, docyment_root=settings.MEDIA_ROOT)
